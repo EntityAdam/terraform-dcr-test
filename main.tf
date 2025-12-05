@@ -49,7 +49,7 @@ resource "azurerm_monitor_data_collection_endpoint" "dce" {
   name                = "dce-dcr-test"
   resource_group_name = azurerm_resource_group.dcr_rg.name
   location            = azurerm_resource_group.dcr_rg.location
-  kind                = "Linux"
+  kind                = "Windows"
 }
 
 # Data Collection Rule - Linux (Syslog to Event Hub Direct)
@@ -122,10 +122,6 @@ resource "azurerm_monitor_diagnostic_setting" "law_to_eventhub" {
 
   enabled_log {
     category = "Audit"
-  }
-
-  metric {
-    category = "AllMetrics"
   }
 }
 
